@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable" controller="ContactOperation">
+    <aura:attribute name="cnts" type="Contact[]"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>   
+    {!v.cnts}
+    <aura:iteration  items="{!v.cnts}" var="con" >
+        {!con.LastName}
+    </aura:iteration>
+    
+</aura:component>
