@@ -2,21 +2,21 @@ public class ContactListController {
 
 @AuraEnabled
 
-    public static list<contact> getContacts(string accountId){
+public static list<contact> getContacts(string accountId){
 
-        system.debug('accountId'+accountId);
+    system.debug('accountId'+accountId);
 
-        list<contact> contactList =[SELECT ID,FIRSTNAME,LASTNAME,NAME,EMAIl,PHONE
+    list<contact> contactList =[SELECT ID,FIRSTNAME,LASTNAME,NAME,EMAIl,PHONE
 
-                                   FROM contact
+                                FROM contact
 
-                                   ];
+                                ];
 
-         system.debug('contactList'+contactList);
+        system.debug('contactList'+contactList);
 
-        return contactList;
+    return contactList;
 
-    }
+}
 
 }
 
