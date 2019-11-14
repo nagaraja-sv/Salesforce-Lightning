@@ -1,0 +1,33 @@
+({
+	savecontactInvoke : function(component, event,helper) {
+        alert('Calling Helper method');
+        // invoke server side code 
+        // Step 1 : What is server side method 
+        var action = component.get('c.createContact');
+        // Step 2 : Set the parameters 
+        action.setParams({
+            'con':component.get('v.createcontact'),
+            'accid':component.get('v.accountid'),
+        });
+        
+        // Step 4 : Callback function 
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            console.log(response.getReturnValue());
+            if (state == "SUCCESS") {
+                //component.set("v.contactlist", response.getReturnValue());
+                console.log("Suucess with state: " + response.getReturnValue());
+                component.set('v.createcontact','');
+            }
+            else {
+                console.log("Failed with state: " + state);
+            }
+        });
+        // Send action off to be executed
+        // Step 3 : Enque action 
+        $A.enqueueAction(action);
+         
+       
+		
+	}
+})

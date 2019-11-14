@@ -1,0 +1,68 @@
+Nested component and componnet composition 
+------------------------------------------
+We also call it as wrapper componnets
+ 
+ components containing other components
+ 
+ componnet 1- LC.cmp
+ componnet 2 - Lc2.cmp
+ 
+ Wrapper componet 
+ <aura:component>
+	<c:Lc>
+	<c:lc2>
+ </aura:component>
+ 
+ this wrapper componnet can be add in application 
+ 
+ Attribute passing
+ -----------------------
+ We can also pass attributes to nested components.
+ 
+childComponent1.cmp 
+--------------------
+<aura:component>
+	<p>This is child component 1 </p>
+</aura:component>
+ 
+ChildComponent2.cmp
+---------------------
+<aura:component>
+	<aura:attribute name="childAttr" type="String" default="This is child attribute Default value"/>
+	Hello {!v.whom}!
+</aura:component>
+ 
+<!--c:nestedComponents-->
+<aura:component>
+	<aura:attribute name="passthrough" type="String" default="This is default value passed through from nested comp"/>
+	This is example of nested components
+	<c:childComponent1/>
+	<c:ChildComponent2 childAttr="{#v.passthrough}"/>
+</aura:component>
+
+{#v.passthrough} is an unbound expression - any change to the value of the childAttr attribute  doesn’t propagate back to affect the value of the passthrough attribute in
+c:nestedComponents.
+
+Data Binding Between Components
+------------------------------------
+There are two forms of expressions
+	- {#expression} (Unbound Expressions)
+	- {!expression} (Bound Expressions)
+	
+ex:
+<aura:component>
+	<aura:attribute name="parentAttr" type="String" default="parent attribute"/>
+	<!-- Instantiate the child component -->
+	<c:child childAttr="{!v.parentAttr}" />
+</aura:component>
+
+{!v.parentAttr} is a bound expression. Any change to the value of the childAttr attribute in c:child also affects the
+parentAttr attribute in c:parent and vice versa.	
+
+
+
+<c:child childAttr="{#v.parentAttr}" />
+{#v.parentAttr} is an unbound expression. Any change to the value of the childAttr attribute in c:child doesn’t affect
+the parentAttr attribute in c:parent and vice versa.
+
+
