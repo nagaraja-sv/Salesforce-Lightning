@@ -3,12 +3,9 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     Account Id : {!v.recordId}
     <div class="slds-p-around_small"> 
-    
     <c:ContactCreateContact accountid="{!v.recordId}"></c:ContactCreateContact>
     </div>
-    
     <div class="slds-p-around_small">
-        
         <div class="slds-grid slds-wrap">
             <aura:iteration items="{!v.contactlist}" var="con">
                 <div class="slds-col slds-size_1-of-3">

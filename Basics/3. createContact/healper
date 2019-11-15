@@ -9,7 +9,6 @@
             'con':component.get('v.createcontact'),
             'accid':component.get('v.accountid'),
         });
-        
         // Step 4 : Callback function 
         action.setCallback(this, function(response) {
             var state = response.getState();
@@ -26,8 +25,5 @@
         // Send action off to be executed
         // Step 3 : Enque action 
         $A.enqueueAction(action);
-         
-       
-		
 	}
 })

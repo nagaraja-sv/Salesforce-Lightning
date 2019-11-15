@@ -20,9 +20,7 @@
         // Send action off to be executed
         $A.enqueueAction(action);
     },
-    
     doRedirect: function(component, event, helper) {
-        
         var eventSource = event.getSource();
         console.log('eventSource'+eventSource); 
         var cid = eventSource.get("v.name");
@@ -33,5 +31,4 @@
         });
         navEvt.fire();
     }
-    
 })

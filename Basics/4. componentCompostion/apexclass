@@ -8,11 +8,7 @@ public class ContactOperation {
            System.debug('con==>'+con);
         System.debug('accountid==>'+accid);
         con.accountId = accid;
-        
-      
-        
         insert con;
         return con;
-        
     }
 }

@@ -11,11 +11,6 @@
     <aura:attribute name= "accountid" 
                     type = "string"
                 />
-                               
-                              
-                              
-                                                      
-    
     <div class="slds-p-around-small">
         <lightning:input name="First Name" 
                          label="First Name"
@@ -33,7 +28,5 @@
                          label="Email"/>
         <br/>
         <lightning:button variant="brand" label="Create Contact" title="Create Contact" onclick="{! c.saveConatact }" />
-        
     </div>
-    
 </aura:component>
