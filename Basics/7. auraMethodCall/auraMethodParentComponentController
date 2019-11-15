@@ -1,0 +1,9 @@
+({
+callchildmethod : function(component, event, helper) {
+    alert('calling child component');
+    var childcomp = component.find("childcomp");
+    var mes = childcomp.getMessageFromChildMethod('its input from call');
+    component.set("v.message",mes);
+    console.log(mes+'mes');
+}
+})

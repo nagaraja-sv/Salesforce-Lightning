@@ -1,0 +1,9 @@
+<aura:component >
+<aura:attribute name="message"
+                type="string"
+                default="The default message in parent"
+                />
+<c:AuraMethodChildComponent aura:id="childcomp"></c:AuraMethodChildComponent>
+<lightning:button variant="brand" label="Call Aura Method" onclick="{!c.callchildmethod}"/>
+{!v.message}
+</aura:component>
