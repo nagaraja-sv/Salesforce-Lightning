@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:attribute name="parentMessage" type="string" default="Deafult Message from Parent"/>
+    {!v.parentMessage}
+    <aura:handler event="c:ApplicationEventExample"
+                  Action="{!c.dohandleEvent}"/>
+</aura:component>

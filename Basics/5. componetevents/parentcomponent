@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:handler name="cmt" 
+                   event="c:ComponentEventExample" 
+                   action="{!c.handlerAction}"></aura:handler>
+    <aura:attribute name="ParentMeassage"
+                    type="string"
+                    default="VALUE FOR PARENT COMPONENT"></aura:attribute>
+    <aura:attribute name="eventNum"
+                    type="integer" 
+                    default="0"></aura:attribute>
+    <c:ChildComponentExample></c:ChildComponentExample> <br/>
+    {!v.ParentMeassage}
+</aura:component>
