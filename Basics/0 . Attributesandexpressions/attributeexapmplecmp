@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="number1" type="integer" default="10"/>
+    <aura:attribute name="number2" type="integer" />
+    <aura:attribute name="name" type="string" default="Rahul" />
+     <aura:attribute name="namelist" type="list" default="['Rahul','Raj','Kasi']" />
+    <aura:attribute name="intlist" type="list" />
+    <lightning:button variant="brand" label="Display List" title="Brand action" onclick="{!c.doInit }" /><br></br>
+    number1 is {!v.number1}<br></br>
+    number2 is {!v.number2}<br></br>
+    name is {!v.name}<br></br>
+    namelist is {!v.namelist}<br></br>
+    <aura:iteration items="{!v.intlist}" var="eachInt">
+    intlist is {!eachInt.value}<br></br>
+    </aura:iteration>
+</aura:component>
