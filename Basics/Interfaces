@@ -1,7 +1,7 @@
 1. Tab 
         force:appHostable
 2. Quick Action 
-        force:LighteningQuickAction
+        force:lighteningQuickAction
 3. Page
         flexipage:availbleForAllPageTypes
 4. Recordpage 
