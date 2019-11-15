@@ -1,0 +1,10 @@
+1. Tab 
+        force:appHostable
+2. Quick Action 
+        force:LighteningQuickAction
+3. Page
+        flexipage:availbleForAllPageTypes
+4. Recordpage 
+        flexipage: availbleForRecordHome,force:hasRecordId
+5. Community Page
+        forceCommunity:availbleForAllPageTypes
