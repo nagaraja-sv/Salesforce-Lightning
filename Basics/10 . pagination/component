@@ -1,0 +1,44 @@
+<aura:component controller ="AccounntPaginationController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+<aura:attribute name="data" type="object"></aura:attribute>
+    <aura:attribute name="columns" type="list"></aura:attribute>
+    <aura:attribute name ="recordId" type="string"></aura:attribute>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+    <aura:attribute name="pageNumber" type="integer" default="1"></aura:attribute>
+    <aura:attribute name="pageSize" type="integer" default="5"></aura:attribute>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"></aura:attribute>
+    <aura:attribute name="resultSize" type="Integer" default="0"></aura:attribute>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"></aura:handler>
+    <lightning:layout multipleRows="true" horizontalAlign="center">
+    <lightning:layoutItem padding="around-small" size="12">
+            <lightning:datatable data="{!v.data}"
+                                 aura:id="accountDataTable"
+                                 columns="{!v.columns}"
+                                  draftValues="{! v.draftValues }"
+                                 onsave="{! c.handleSaveEdition }"
+                                 keyField="id"
+                                 hideCheckboxColumn="true"                         
+                                 ></lightning:datatable>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small" flexibility="true">
+            <lightning:button variant="brand" label="First" title="Prev" iconName="utility:left"
+                              iconPosition="left"
+                             onclick="{! c.onFirst }"
+                             disabled="{!v.pageNumber ==1}"/>
+           <lightning:button variant="brand" label="Prev" title="Prev" iconName="utility:chevronleft"
+                              iconPosition="left"
+                             onclick="{! c.onPrev }"
+                             disabled="{!v.pageNumber ==1}"/>
+            <span class="slds-p-horizental_small">
+            page {!v.pageNumber} | showing records from {!((v.pageNumber-1)*v.pageSize) +' to '+((v.pageNumber-1)*v.pageSize+v.resultSize)}
+            </span>
+             <lightning:button variant="brand" label="Next" title="Prev" iconName="utility:chevronright"
+                              iconPosition="right"
+                             onclick="{! c.onNext }"
+                             disabled="{!v.isLastPage}"/>
+            <lightning:button variant="brand" label="Last" title="Last" iconName="utility:right"
+                              iconPosition="right"
+                             onclick="{! c.onlast }"
+                             disabled="{!v.isLastPage}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+   </aura:component>
