@@ -7,7 +7,6 @@ var numbers =[];
                 value:i
             });           
         }
-         console.log('inside numbers'+numbers);
         component.set("v.intlist",numbers);
 }
 })
