@@ -1,0 +1,4 @@
+- use <apex:includeLightning /> tags at the beginning of VF page This component loads the JavaScript file used by Lightning Components for Visualforce.
+- Lightning App must extend ltng:outApp library/interface.
+- We can use $Lightning.use() many times into VF page but that must reference the same lightning app.
+- We can only call those components that are referenced into the app.
