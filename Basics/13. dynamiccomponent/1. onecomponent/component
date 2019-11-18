@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+<lightning:button variant="brand" label="create component" onclick="{!c.createComponent}"></lightning:button>
+    {!v.body}
+</aura:component>

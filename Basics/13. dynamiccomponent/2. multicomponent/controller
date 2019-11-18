@@ -1,0 +1,74 @@
+({
+createComponent : function(component, event, helper) {
+$A.createComponents(
+             [
+                 ["ui:inputText",
+                    {
+                        "aura:id": "intextId1",
+                        "labelClass":"slds-form-element__label",
+                        "placeholder":"Enter the first name here",
+                        "label":"First Name:",
+                        "class":"slds-input"               
+                    }
+                ],
+                 ["ui:inputText",
+                    {
+                        "aura:id": "intextId2",
+                        "labelClass":"slds-form-element__label",
+                        "placeholder":"Enter the middle name here",
+                        "label":"Middle Name:",
+                        "class":"slds-input"               
+                    }
+                ],
+                 ["ui:inputText",
+                    {
+                        "aura:id": "intextId3",
+                        "labelClass":"slds-form-element__label",
+                        "placeholder":"Enter the last name here",
+                        "label":"Last Name:",
+                        "class":"slds-input"               
+                    }
+                ],
+                 [
+                   "lightning:button",
+                    {
+                    "aura:id": "UniqueAuraId",
+                    "label": "Destroy Me",
+                    "onclick": component.getReference("c.DestroyMe")
+                },
+                 ]
+             ],
+             function(newComps,status,errorMessage){
+              if(status==="SUCCESS"){
+                var body = component.get("v.body");
+                    newComps.forEach(function(item){
+                        body.push(item);
+                    });
+                    component.set("v.body",body);
+                }
+                 else if(status==="INCOMPLETE"){
+                     //logic to handle incomplete 
+                 }
+                 else if(status==="ERROR"){
+                     //logic to handle Error 
+                 }
+             }
+         );
+},
+    DestroyMe : function(cmp) {       
+        var comp = cmp.find("UniqueAuraId")
+        comp.destroy();
+       /*
+        *We can iterate all elements with find by tag name or can approach below also to destroy
+        var comp2 = cmp.find({ instancesOf : "ui:inputText" });
+        comp2.forEach(function(item){
+                        item.destroy();
+        });*/
+         var intextId1 = cmp.find("intextId1");
+         intextId1.destroy();
+         var intextId2 = cmp.find("intextId2");
+         intextId2.destroy();
+         var intextId3 = cmp.find("intextId3");
+         intextId3.destroy();
+    }
+})

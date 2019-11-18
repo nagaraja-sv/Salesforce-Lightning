@@ -1,0 +1,27 @@
+({
+createComponent : function(component, event, helper) {
+        $A.createComponent(
+           "ui:inputText",
+            {
+                "aura:id": "intextId",
+                "labelClass":"slds-form-element__label",
+                "placeholder":"Enter the text here",
+                "label":"Please Specify here:",
+                "class":"slds-input"               
+            },
+            function(newintextId,status,errorMessage){
+                if(status === "SUCCESS"){
+                var body = component.get("v.body");   
+                    body.push(newintextId);
+                    component.set("v.body",body);
+                }
+                else if(status ==="INCOMPLETE"){
+                //logic to handle incomplete     
+                }
+                else if(status ==="ERROR"){
+                    //logic to handel the error message
+}
+            }
+        );
+}
+})
