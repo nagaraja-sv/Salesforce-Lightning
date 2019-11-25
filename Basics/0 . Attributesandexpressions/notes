@@ -1,0 +1,28 @@
+// to hold some value
+
+// variable
+public Account ObjAccount {get;set;}
+public boolean show = true;
+
+{!show}
+{!ObjAccount.name}
+{!ObjAccount.Phone}
+
+
+// attribute
+<aura:attribute name="ObjAccount" type="Account" />
+<aura:attribute name="Show" type="boolean" default="false"/>
+
+//Value Provider
+{!v.ObjAccount.name}
+{!v.ObjAccount.phone}
+
+
+// primitive Datatypes
+// non-Primitive Datatypes
+
+1. Basic Type
+2. Object Type
+3. Collection Type
+4. Apex Class Type
+4. FrameWork Sepecific Type

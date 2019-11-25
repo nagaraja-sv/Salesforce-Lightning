@@ -1,5 +1,7 @@
 <aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+
     <aura:attribute name="number1" type="integer" default="10"/>
+
     <aura:attribute name="number2" type="integer" />
     <aura:attribute name="name" type="string" default="Rahul" />
      <aura:attribute name="namelist" type="list" default="['Rahul','Raj','Kasi']" />
@@ -13,3 +15,8 @@
     intlist is {!eachInt.value}<br></br>
     </aura:iteration>
 </aura:component>
+
+
+
+
+
