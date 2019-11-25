@@ -1,0 +1,23 @@
+<aura:component controller="PropertyDetailsCntr" implements="flexipage:availableForAllPageTypes" access="global">
+    <!-- Declare a variable to get to hold list of propertites from server-->
+    <aura:attribute name="proList"
+                    type="Property__c[]" />
+    <aura:attribute name="proNotfound"
+                    type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getAllPros}" />
+    <aura:if isTrue="{!v.proNotfound}">
+        <aura:iteration items="{!v.proList}" var="pro">
+            <lightning:layout multipleRows="true">
+                <lightning:layoutItem>
+                    {!pro.Name}
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    {!pro.Rent__c}
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:iteration>
+        <aura:set attribute="else">
+            Properties are not found
+        </aura:set>
+    </aura:if>
+</aura:component>
