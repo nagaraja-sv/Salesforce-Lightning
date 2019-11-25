@@ -1,0 +1,92 @@
+public class PropertyDetailsCntr {
+    
+    @AuraEnabled(cacheable=true)
+    public static list<Property__c> getLatestProperties(){
+        List<Property__c> listofProperties = new List<Property__c>();
+        listofProperties = [SELECT Id, Name,
+                            Area__c, 
+                            Additional_Rooms__c, 
+                            Available_From__c, 
+                            Carpet_Area_sqfeet__c, 
+                            Country__c, 
+                            Electricity_Status__c,
+                            Covered_Area_Sqfeet__c, 
+                            Facing__c, 
+                            Floor__c, 
+                            Property_Description__c, 
+                            Property_Main_Image__c, 
+                            Property_Owner__c, 
+                            Property_Video_URL__c, 
+                            Rent__c, 
+                            Security_Deposit__c, 
+                            Status__c, 
+                            State__c, 
+                            Street__c, 
+                            Verified__c, 
+                            Water_Availability__c, 
+                            No_of_Bed_Rooms__c, 
+                            Number_of_Bath_Rooms__c, 
+                            Number_of_Balcony__c, 
+                            Maintenance_Charge__c, 
+                            Location__c, 
+                            Land_Mark__c, 
+                            Geo_Map__c, 
+                            Geo_Map__Longitude__s, 
+                            Geo_Map__Latitude__s, 
+                            Furnishing_Availble__c, 
+                            Furnishing_Available__c, 
+                            Furnished_Type__c, 
+                            For_Families__c, 
+                            For_Bachelors__c FROM Property__c];
+        
+        return listofProperties;
+        
+    }
+    @AuraEnabled(cacheable=true)
+    public static Property__c getDetails(string propId){
+        system.debug('getDetails propId'+propId);
+        Property__c prop = [SELECT Id, Name,
+                            Area__c, 
+                            Additional_Rooms__c, 
+                            Available_From__c, 
+                            Carpet_Area_sqfeet__c, 
+                            Country__c, 
+                            Electricity_Status__c,
+                            Covered_Area_Sqfeet__c, 
+                            Facing__c, 
+                            Floor__c, 
+                            Property_Description__c, 
+                            Property_Main_Image__c, 
+                            Property_Owner__c, 
+                            Property_Video_URL__c, 
+                            Rent__c, 
+                            Security_Deposit__c, 
+                            Status__c, 
+                            State__c, 
+                            Street__c, 
+                            Verified__c, 
+                            Water_Availability__c, 
+                            No_of_Bed_Rooms__c, 
+                            Number_of_Bath_Rooms__c, 
+                            Number_of_Balcony__c, 
+                            Maintenance_Charge__c, 
+                            Location__c, 
+                            Land_Mark__c, 
+                            Geo_Map__c, 
+                            Geo_Map__Longitude__s, 
+                            Geo_Map__Latitude__s, 
+                            Furnishing_Availble__c, 
+                            Furnishing_Available__c, 
+                            Furnished_Type__c, 
+                            For_Families__c, 
+                            For_Bachelors__c
+                            FROM Property__c
+                            WHERE Id=:propId
+                            LIMIT 1
+                           ];
+        system.debug('getDetails prop'+prop);
+        return prop;
+    }
+
+
+}
