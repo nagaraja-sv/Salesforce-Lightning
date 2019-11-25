@@ -8,3 +8,5 @@
         flexipage: availbleForRecordHome,force:hasRecordId
 5. Community Page
         forceCommunity:availbleForAllPageTypes
+6. Dispaly Component From a URL
+        lightning:isUrlAddressable
