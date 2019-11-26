@@ -1,10 +1,22 @@
 <aura:component controller="PropertyDetailsCntr" implements="flexipage:availableForAllPageTypes" access="global">
     <!-- Declare a variable to get to hold list of propertites from server-->
-    <aura:attribute name="proList"
-                    type="Property__c[]" />
-    <aura:attribute name="proNotfound"
-                    type="boolean" default="false"/>
+    <aura:attribute name="proList"  type="Property__c[]" />
+    <aura:attribute name="proNotfound" type="boolean" default="false"/>
+    <aura:attribute name="openOwnerDeatils" type="boolean" default="false"/>
+    <aura:attribute name="proOwnerId"  type="string" />
     <aura:handler name="init" value="{!this}" action="{!c.getAllPros}" />
+    <aura:if isTrue="{!v.openOwnerDeatils}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:button class="slds-modal__close" iconName="action:close" onclick="{!c.closemodal}" />
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <c:proOwnerDetails propertyOwnerId="{!v.proOwnerId}" ></c:proOwnerDetails>
+                </div>
+            </div>
+        </section>
+    </aura:if>
     <aura:if isTrue="{!v.proNotfound}">
         <aura:iteration items="{!v.proList}" var="pro">
             <lightning:layout multipleRows="true">
@@ -14,6 +26,7 @@
                 <lightning:layoutItem>
                     {!pro.Rent__c}
                 </lightning:layoutItem>
+                <lightning:button name="Owner Deatils" label="Owner Deatils" value="{!pro.Property_Owner__c}" onclick="{!c.ownerDeatilsHandler}"></lightning:button>
             </lightning:layout>
         </aura:iteration>
         <aura:set attribute="else">

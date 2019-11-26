@@ -8,5 +8,14 @@
             component.set('{!v.proNotfound}',true);
         });
         $A.enqueueAction(action,false);
+    },
+    ownerDeatilsHandler: function(component,event,helper){
+        var eveSource = event.getSource();
+        var ownerid = eveSource.get('v.value');
+        component.set('{!v.proOwnerId}',ownerid);
+        component.set('{!v.openOwnerDeatils}',true);
+    },
+    closemodal: function(component,event,helper){
+        component.set('{!v.openOwnerDeatils}',false);
     }
 })
