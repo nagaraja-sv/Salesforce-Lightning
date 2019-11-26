@@ -1,0 +1,6 @@
+<aura:component>
+	<lightning:recordEditForm objectApiName="Property_enquiry__c">
+        <lightning:inputField  fieldName="Name__c"/>
+     <lightning:button  type="submit" label="Save" />
+    </lightning:recordEditForm>
+</aura:component>
