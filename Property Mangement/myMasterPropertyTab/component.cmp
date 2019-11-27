@@ -1,0 +1,22 @@
+<aura:component controller="PropertyDetailsCntr" implements="lightning:isUrlAddressable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="propertyId" type="String"></aura:attribute>
+    <aura:attribute name="property" type="Property__c"></aura:attribute>
+    <aura:attribute name="propertyFound" type="Boolean" default="false"></aura:attribute>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.getSelectProperty}"/>
+    
+    <lightning:tabset variant="scoped">
+        <lightning:tab label="Property Details">
+            <c:myPropertyDetails property="{!v.property}"></c:myPropertyDetails>   
+        </lightning:tab>
+        <lightning:tab label="Pricing Details">
+            <c:myPropertyPricing property="{!v.property}"></c:myPropertyPricing>
+        </lightning:tab>
+        <lightning:tab label="Onwer Details">
+            <c:propertyOwnerDetails propertyOwnerId="{!v.property.Property_Owner__c}"></c:propertyOwnerDetails>
+        </lightning:tab>
+        <lightning:tab label="Property Video">
+            <c:myPropertyVideo property="{!v.property}"></c:myPropertyVideo>
+        </lightning:tab>
+    </lightning:tabset>
+</aura:component>
