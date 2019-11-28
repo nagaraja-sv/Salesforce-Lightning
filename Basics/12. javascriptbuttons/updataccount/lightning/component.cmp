@@ -1,0 +1,8 @@
+<aura:component controller="AccountUpdateLightning" implements="force:hasRecordId,force:lightningQuickAction">
+    <aura:handler name="init" value="{!this}" action="{!c.updateRating}"/>
+    <div class="exampleHolder">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </div>
+</aura:component>
+
+

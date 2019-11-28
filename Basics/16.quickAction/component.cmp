@@ -1,12 +1,5 @@
 <aura:component implements="force:lighteningQuickAction,force:hasRecordId,force:hasSobjectName">
-
-
     I am lightening Quick Action 
-
     {!v.recordId}
     {!v.sObjectName}
-
-
-
-
 </aura:component>
