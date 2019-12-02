@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+<aura:attribute name="location" type="string"></aura:attribute>   
+    <aura:attribute name="locationOptions" type="List"></aura:attribute>
+    <aura:handler name="init" value="this" action="{!c.initFilter}"></aura:handler>
+    <lightning:layout multiplerows="true" class="filterlayout">
+        <lightning:layoutitem padding="around-small">
+            <div class="header-column">             
+                <lightning:combobox label="Locality"  fieldLevelHelp="Search property based on locality"
+                    variant="label-stacked" value="{!v.location}" options="{!v.locationOptions}"  >
+                </lightning:combobox>               
+            </div>
+        </lightning:layoutitem>
+    </lightning:layout>
+</aura:component>
